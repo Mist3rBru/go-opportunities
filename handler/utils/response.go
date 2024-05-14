@@ -29,3 +29,7 @@ func SendCreatedMessage(ctx *gin.Context, msg string) {
 		"msg": msg,
 	})
 }
+
+func SendData(ctx *gin.Context, data interface{}) {
+	ctx.JSON(http.StatusOK, data)
+}
