@@ -11,5 +11,6 @@ func initRoutes(router *gin.Engine) {
 	{
 		g.POST("/opening", handler.CreateOpeningHandler)
 		g.GET("/openings", handler.ListOpeningsHandler)
+		g.GET("/openings/:id", handler.FindOpeningByIdHandler)
 	}
 }

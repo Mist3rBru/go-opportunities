@@ -1,14 +1,21 @@
 package handler_utils
 
 import (
+	"gopportunities/domain"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
-func SendError(ctx *gin.Context, statusCode int, err error) {
-	ctx.JSON(statusCode, gin.H{
+func SendBadRequestError(ctx *gin.Context, err error) {
+	ctx.JSON(http.StatusBadRequest, gin.H{
 		"msg": err.Error(),
+	})
+}
+
+func SendNotFoundError(ctx *gin.Context, item string) {
+	ctx.JSON(http.StatusNotFound, gin.H{
+		"msg": domain.NotFoundError(item).Error(),
 	})
 }
 

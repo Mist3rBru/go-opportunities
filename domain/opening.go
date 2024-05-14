@@ -1,7 +1,6 @@
 package domain
 
 import (
-	domain_utils "gopportunities/domain/utils"
 	"time"
 
 	"github.com/google/uuid"
@@ -24,22 +23,22 @@ func (s *Opening) Validate() error {
 		return err
 	}
 	if s.Role == "" {
-		return domain_utils.RequiredParamError("role", "string")
+		return RequiredParamError("role", "string")
 	}
 	if s.Company == "" {
-		return domain_utils.RequiredParamError("company", "string")
+		return RequiredParamError("company", "string")
 	}
 	if s.Location == "" {
-		return domain_utils.RequiredParamError("location", "string")
+		return RequiredParamError("location", "string")
 	}
 	if s.Remote == nil {
-		return domain_utils.RequiredParamError("remote", "bool")
+		return RequiredParamError("remote", "bool")
 	}
 	if s.Link == "" {
-		return domain_utils.RequiredParamError("link", "string")
+		return RequiredParamError("link", "string")
 	}
 	if s.Salary == "" {
-		return domain_utils.RequiredParamError("salary", "string")
+		return RequiredParamError("salary", "string")
 	}
 	return nil
 }

@@ -3,7 +3,6 @@ package handler
 import (
 	"gopportunities/domain"
 	handler_utils "gopportunities/handler/utils"
-	"net/http"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -16,8 +15,7 @@ func CreateOpeningHandler(ctx *gin.Context) {
 	ctx.BindJSON(&opening)
 
 	if err := opening.Validate(); err != nil {
-		logger.Errorf("request error: %v", err.Error())
-		handler_utils.SendError(ctx, http.StatusBadRequest, err)
+		handler_utils.SendBadRequestError(ctx, err)
 		return
 	}
 
