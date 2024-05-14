@@ -19,6 +19,7 @@ func main() {
 		return
 	}
 
+	logger.Info("Server running...")
 	handler.Init()
 	router.Init()
 }

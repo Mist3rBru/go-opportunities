@@ -4,6 +4,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"strings"
 )
 
 type Logger struct {
@@ -16,13 +17,14 @@ type Logger struct {
 
 func NewLogger(prefix string) *Logger {
 	writer := io.Writer(os.Stdout)
-	logger := log.New(writer, prefix, log.Ldate|log.Ltime)
+	flags := log.Ldate | log.Ltime | log.Lmsgprefix
+	prefix = strings.ToUpper(prefix)
 
 	return &Logger{
-		debug:   log.New(writer, "DEBUG: ", logger.Flags()),
-		info:    log.New(writer, "INFO: ", logger.Flags()),
-		warning: log.New(writer, "WARNING: ", logger.Flags()),
-		error:   log.New(writer, "ERROR: ", logger.Flags()),
+		debug:   log.New(writer, prefix+" DEBUG: ", flags),
+		info:    log.New(writer, prefix+" INFO: ", flags),
+		warning: log.New(writer, prefix+" WARNING: ", flags),
+		error:   log.New(writer, prefix+" ERROR: ", flags),
 		writer:  writer,
 	}
 }
