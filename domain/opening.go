@@ -1,6 +1,7 @@
 package domain
 
 import (
+	"net/url"
 	"time"
 
 	"github.com/google/uuid"
@@ -36,6 +37,9 @@ func (s *Opening) Validate() error {
 	}
 	if s.Link == "" {
 		return RequiredParamError("link", "string")
+	}
+	if _, err := url.ParseRequestURI(s.Link); err != nil {
+		return InvalidParamError("link")
 	}
 	if s.Salary == "" {
 		return RequiredParamError("salary", "string")
