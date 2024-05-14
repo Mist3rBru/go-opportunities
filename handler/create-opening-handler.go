@@ -11,7 +11,6 @@ import (
 
 func CreateOpeningHandler(ctx *gin.Context) {
 	opening := domain.Opening{}
-
 	ctx.BindJSON(&opening)
 
 	if err := opening.Validate(); err != nil {

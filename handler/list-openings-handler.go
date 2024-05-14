@@ -9,7 +9,6 @@ import (
 
 func ListOpeningsHandler(ctx *gin.Context) {
 	openings := []domain.Opening{}
-
 	if err := db.Find(&openings).Error; err != nil {
 		logger.Errorf("failed to list openings: %v", err)
 		handler_utils.SendInternalServerError(ctx)
