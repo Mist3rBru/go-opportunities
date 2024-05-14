@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  api:
+    container_name: gopportunities-api
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      target: build
+    ports:
+      - '8080:8080'
+    environment:
+      - GIN_MODE=release
+    command: bash -c "./main"
