@@ -4,7 +4,10 @@ go 1.22.1
 
 require gorm.io/gorm v1.25.10
 
-require github.com/mattn/go-sqlite3 v1.14.17 // indirect
+require (
+	github.com/google/uuid v1.6.0 // indirect
+	github.com/mattn/go-sqlite3 v1.14.17 // indirect
+)
 
 require (
 	github.com/bytedance/sonic v1.11.6 // indirect

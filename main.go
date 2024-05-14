@@ -2,6 +2,7 @@ package main
 
 import (
 	"gopportunities/config"
+	"gopportunities/handler"
 	"gopportunities/router"
 )
 
@@ -14,9 +15,10 @@ func main() {
 
 	err := config.Init()
 	if err != nil {
-		logger.Error(err)
+		logger.Error("config init error: ", err)
 		return
 	}
 
+	handler.Init()
 	router.Init()
 }

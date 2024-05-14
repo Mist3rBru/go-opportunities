@@ -1,7 +1,7 @@
 package config
 
 import (
-	"gopportunities/schemas"
+	"gopportunities/domain"
 	"os"
 
 	"gorm.io/driver/sqlite"
@@ -29,7 +29,7 @@ func InitSQLite() (*gorm.DB, error) {
 		return nil, err
 	}
 
-	err = db.AutoMigrate(&schemas.Opening{})
+	err = db.AutoMigrate(&domain.Opening{})
 	if err != nil {
 		logger.Error("sqlite automigration error: ", err)
 		return nil, err
