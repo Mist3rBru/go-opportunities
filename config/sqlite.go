@@ -1,14 +1,14 @@
 package config
 
 import (
-	"gopportunities/domain"
+	"gopportunities/internal/domain"
 	"os"
 
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
-func InitSQLite() (*gorm.DB, error) {
+func initSQLite() (*gorm.DB, error) {
 	logger := NewLogger("sqlite")
 	dbPath := "./db.dev"
 
@@ -17,7 +17,7 @@ func InitSQLite() (*gorm.DB, error) {
 		logger.Info("database file not found, creating it")
 		file, err := os.Create(dbPath)
 		if err != nil {
-			logger.Error("failer to create db.dev", err)
+			logger.Errorf("failer to create %s: %v", dbPath, err)
 			return nil, err
 		}
 		file.Close()

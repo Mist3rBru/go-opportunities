@@ -6,15 +6,12 @@ APP_NAME=gopportunities
 default: run
 
 run:
-	@go run main.go
+	@go run cmd/api/main.go
 build:
-	@go build -a -o $(APP_NAME) main.go
+	@go build -a -o $(APP_NAME) cmd/api/main.go
 test:
 	@go test ./ ...
-docs:
-	@swag init
 clean:
 	@rm -f $(APP_NAME)
-	@rm -rf ./docs
 format:
 	@gofmt -w .

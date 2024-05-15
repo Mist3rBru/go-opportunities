@@ -2,8 +2,8 @@ package main
 
 import (
 	"gopportunities/config"
-	"gopportunities/handler"
-	"gopportunities/router"
+	"gopportunities/internal/handler"
+	"gopportunities/internal/router"
 )
 
 var (

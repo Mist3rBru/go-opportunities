@@ -1,7 +1,7 @@
 package handler_utils
 
 import (
-	"gopportunities/domain"
+	"gopportunities/internal/domain"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -37,6 +37,6 @@ func SendCreatedMessage(ctx *gin.Context, msg string) {
 	})
 }
 
-func SendData(ctx *gin.Context, data interface{}) {
+func SendData(ctx *gin.Context, data any) {
 	ctx.JSON(http.StatusOK, data)
 }

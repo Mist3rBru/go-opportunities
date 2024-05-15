@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"gopportunities/domain"
-	handler_utils "gopportunities/handler/utils"
+	"gopportunities/internal/domain"
+	handler_utils "gopportunities/internal/handler/utils"
 	"time"
 
 	"github.com/gin-gonic/gin"
